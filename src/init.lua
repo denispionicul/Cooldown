@@ -7,9 +7,9 @@ local Trove = require(script.Parent:FindFirstChild("Trove") or script.Trove)
 local WaitFor = require(script.Parent:FindFirstChild("WaitFor") or script.WaitFor)
 
 --[=[
-    @class Cooldown
+	@class Cooldown
 
-    Countdown is a Debounce utility which is meant to make it easier to create Debounce easily, with minimal effort.
+	Countdown is a Debounce utility which is meant to make it easier to create Debounce easily, with minimal effort.
 	Basic Usage:
 	```lua
 	local Cooldown = require(Path.Cooldown)
@@ -30,7 +30,7 @@ type self = {
 }
 
 --[=[
-    @interface Cooldown
+	@interface Cooldown
 	@within Cooldown
 	.Time number -- The time of the debounce
 	.LastActivation number -- The last time the debounce reset
@@ -40,7 +40,7 @@ type self = {
 ]=]
 
 --[=[
-    @prop Time
+	@prop Time number
 	@within Cooldown
 	The time property signifies how much time is needed to wait before using :Run()
 
@@ -66,7 +66,7 @@ type self = {
 ]=]
 
 --[=[
-    @prop AutoReset
+	@prop AutoReset boolean
 	@within Cooldown
 	When AutoReset is on, the debounce will reset after a succesful Run() call.
 
@@ -96,7 +96,7 @@ function Cooldown.__tostring(_: Cooldown)
 end
 
 --[=[
-    Returns a new Cooldown.
+	Returns a new Cooldown.
 
 	@param Time number -- The time property, for more info check the "Time" property.
 	@error "No Time" -- Happens when no Time property is provided.
@@ -125,14 +125,14 @@ end
 --[=[
 	@method Reset
 	@within Cooldown
-    Resets the debounce. Just like calling a sucessful :Run() with AutoReset set to true
+	Resets the debounce. Just like calling a sucessful :Run() with AutoReset set to true
 ]=]
 function Cooldown.Reset(self: Cooldown)
 	self.LastActivation = os.clock()
 
 	task.defer(function()
 		self._Connections.OnReadyHandler = WaitFor.Custom(function()
-			return os.clock() - self.LastActivation >= self.Time
+			return os.clock() - self.LastActivation >= self.Time or nil
 		end):andThen(function()
 			self.OnReady:Fire()
 			self._Connections.OnReadyHandler:cancel()
@@ -143,7 +143,7 @@ end
 --[=[
 	@method RunIf
 	@within Cooldown
-    If the given Predicate (The First parameter) is true or returns true, it will call :Run() on itself.
+	If the given Predicate (The First parameter) is true or returns true, it will call :Run() on itself.
 
 	@error "No Predicate" -- Happens when no Predicate, indicated by a boolean or boolean-returning function is provided.
 	@error "No Callback" -- Happens when no callback is provided.
@@ -166,7 +166,10 @@ end
 ]=]
 function Cooldown.RunIf(self: Cooldown, Predicate: boolean | () -> boolean, Callback: () -> ()): boolean
 	local PredicateType = type(Predicate)
-	assert(PredicateType == "boolean" or PredicateType == "function", "Please provide a boolean or function as the predicate.")
+	assert(
+		PredicateType == "boolean" or PredicateType == "function",
+		"Please provide a boolean or function as the predicate."
+	)
 
 	local Output = if PredicateType == "function" then Predicate() else Predicate
 
@@ -180,7 +183,7 @@ end
 --[=[
 	@method RunOrElse
 	@within Cooldown
-    if the :Run() will not be succesful, it will instead call callback2. This won't reset the debounce.
+	if the :Run() will not be succesful, it will instead call callback2. This won't reset the debounce.
 
 	@error "No Callback" -- Happens when no Callback is provided.
 	@error "No Callback2" -- Happens when no Callback2 is provided.
@@ -215,7 +218,7 @@ end
 --[=[
 	@method Run
 	@within Cooldown
-    Runs the given callback function if the passed time is higher than the Time property.
+	Runs the given callback function if the passed time is higher than the Time property.
 	If AutoReset is true, it will call :Reset() after a succesful run.
 
 	@error "No Callback" -- Happens when no callback is provided.
@@ -238,14 +241,14 @@ end
 --[=[
 	@method IsReady
 	@within Cooldown
-    Returns a boolean indicating if the Cooldown is ready to :Run().
+	Returns a boolean indicating if the Cooldown is ready to :Run().
 ]=]
 function Cooldown.IsReady(self: Cooldown): boolean
 	return os.clock() - self.LastActivation >= self.Time
 end
 
 --[=[
-    Returns a boolean indicating if the given table is a Cooldown.
+	Returns a boolean indicating if the given table is a Cooldown.
 ]=]
 function Cooldown.Is(Table: Cooldown?): boolean
 	return getmetatable(Table) == Cooldown
@@ -254,7 +257,7 @@ end
 --[=[
 	@method Destroy
 	@within Cooldown
-    Destroys the Cooldown.
+	Destroys the Cooldown.
 ]=]
 function Cooldown.Destroy(self: Cooldown)
 	self._Trove:Destroy()
