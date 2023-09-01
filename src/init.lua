@@ -1,5 +1,5 @@
 --!nonstrict
---Version 1.0.0
+--Version 1.0.1
 
 --Dependencies
 local Signal = require(script.Parent:FindFirstChild("Signal") or script.Signal)
@@ -131,13 +131,44 @@ function Cooldown.Reset(self: Cooldown)
 	self.LastActivation = os.clock()
 
 	task.defer(function()
-		self._Connections.OnReadyHandler = WaitFor.Custom(function()
-			return os.clock() - self.LastActivation >= self.Time or nil
-		end):andThen(function()
-			self.OnReady:Fire()
+		if self._Connections.OnReadyHandler then
 			self._Connections.OnReadyHandler:cancel()
+		end
+
+		self._Connections.OnReadyHandler = self._Trove:AddPromise(WaitFor.Custom(function()
+			return self:IsReady() or nil
+		end))
+
+		self._Connections.OnReadyHandler:andThen(function()
+			self.OnReady:Fire()
 		end)
 	end)
+end
+
+--[=[
+	@method Run
+	@within Cooldown
+	Runs the given callback function if the passed time is higher than the Time property.
+	If AutoReset is true, it will call :Reset() after a succesful run.
+
+	@yields
+	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
+	@return boolean -- Returns a boolean indicating if the run was successful or not.
+	@error "No Callback" -- Happens when no callback is provided.
+]=]
+function Cooldown.Run(self: Cooldown, Callback: () -> ()): boolean
+	assert(type(Callback) == "function", "Callback needs to be a function.")
+
+	if self:IsReady() then
+		if self.AutoReset then
+			self:Reset()
+		end
+		Callback()
+
+		return true
+	end
+
+	return false
 end
 
 --[=[
@@ -163,6 +194,11 @@ end
 		print("This will not run")  -- does not print because the first parameter (Predicate) is false.
 	end)
 	```
+
+	@yields
+	@param Predicate boolean | () -> boolean -- The boolean or function that returns a boolean indicating if :Run() will be called.
+	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
+	@return boolean -- Returns a boolean indicating if the run was successful or not.
 ]=]
 function Cooldown.RunIf(self: Cooldown, Predicate: boolean | () -> boolean, Callback: () -> ()): boolean
 	local PredicateType = type(Predicate)
@@ -206,6 +242,10 @@ end
 		print("This will run") -- will print because the :Run() failed.
 	end)
 	```
+
+	@yields
+	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
+	@param Callback2 () -> () -- The function that will be called on a unsuccesful run. Will yield.
 ]=]
 function Cooldown.RunOrElse(self: Cooldown, Callback: () -> (), Callback2: () -> ())
 	assert(type(Callback2) == "function", "Callback2 needs to be a function.")
@@ -216,32 +256,11 @@ function Cooldown.RunOrElse(self: Cooldown, Callback: () -> (), Callback2: () ->
 end
 
 --[=[
-	@method Run
-	@within Cooldown
-	Runs the given callback function if the passed time is higher than the Time property.
-	If AutoReset is true, it will call :Reset() after a succesful run.
-
-	@error "No Callback" -- Happens when no callback is provided.
-]=]
-function Cooldown.Run(self: Cooldown, Callback: () -> ()): boolean
-	assert(type(Callback) == "function", "Callback needs to be a function.")
-
-	if os.clock() - self.LastActivation >= self.Time then
-		if self.AutoReset then
-			self:Reset()
-		end
-		Callback()
-
-		return true
-	end
-
-	return false
-end
-
---[=[
 	@method IsReady
 	@within Cooldown
 	Returns a boolean indicating if the Cooldown is ready to :Run().
+
+	@return boolean -- Indicates if the :Run() will be succesful.
 ]=]
 function Cooldown.IsReady(self: Cooldown): boolean
 	return os.clock() - self.LastActivation >= self.Time

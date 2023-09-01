@@ -5,13 +5,10 @@
 
     "ReplicatedStorage": {
       "Packages": {
-        "$path": "Packages"
-      }
-    },
-
-    "ServerScriptService": {
-      "Cooldown":{
-        "$path": "src"
+        "$path": "Packages",
+        "Cooldown": {
+          "$path": "src"
+        }
       }
     },
 
