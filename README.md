@@ -11,7 +11,7 @@ There are 4 **main** ways to download Cooldown:
 
 * Add it to your [Wally](https://wally.run/) dependencies.
 ```
-"denispionicul/cooldown@1.0.0"
+"denispionicul/cooldown@1.0.1"
 ```
 * Get the Roblox file in [Releases](https://github.com/denispionicul/Cooldown/releases) and add it in your Roblox Studio.
 
