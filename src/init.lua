@@ -1,5 +1,5 @@
 --!nonstrict
---Version 1.0.1
+--Version 1.1.0
 
 --Dependencies
 local Signal = require(script.Parent:FindFirstChild("Signal") or script.Signal)
@@ -126,9 +126,36 @@ end
 	@method Reset
 	@within Cooldown
 	Resets the debounce. Just like calling a sucessful :Run() with AutoReset set to true
+	If a delay is provided, the debounce will be delayed by the provided number. A delay will only last once.
+	An example would be:
+	```lua
+	local Cooldown = require(Path.Cooldown)
+
+	local Debounce: Cooldown = Cooldown.new(2)
+	Debounce.AutoReset = false
+
+	Debounce:Run(function()
+		print("This will run")  -- prints
+	end)
+
+	Debounce:Reset(1) -- We reset it and delay it by 1
+
+	Debounce.OnReady:Wait() -- We wait 3 seconds instead of 2, because we delay it by 1.
+	-- You can think of delaying as adding time + delay which would be 2 + 1 in our case
+	-- Delaying will not change the time.
+
+	Debounce:Run(function()
+		print("This will run")  -- will print because the :Run will be ready.
+	end)
+	```
+
+	@param Delay number? -- The amount of delay to add to the Time
+	@return number -- The cooldown time + delay.
 ]=]
-function Cooldown.Reset(self: Cooldown)
-	self.LastActivation = os.clock()
+function Cooldown.Reset(self: Cooldown, Delay: number?): number
+	local DelayNumber = Delay or 0
+
+	self.LastActivation = os.clock() + DelayNumber
 
 	task.defer(function()
 		if self._Connections.OnReadyHandler then
@@ -137,12 +164,12 @@ function Cooldown.Reset(self: Cooldown)
 
 		self._Connections.OnReadyHandler = self._Trove:AddPromise(WaitFor.Custom(function()
 			return self:IsReady() or nil
-		end))
-
-		self._Connections.OnReadyHandler:andThen(function()
+		end)):andThen(function()
 			self.OnReady:Fire()
 		end)
 	end)
+
+	return self.Time + DelayNumber
 end
 
 --[=[
