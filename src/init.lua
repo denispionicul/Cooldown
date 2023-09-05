@@ -1,5 +1,5 @@
 --!nonstrict
---Version 1.1.0
+--Version 1.2.0
 
 --Dependencies
 local Signal = require(script.Parent:FindFirstChild("Signal") or script.Signal)
@@ -27,6 +27,8 @@ type self = {
 	AutoReset: boolean,
 
 	OnReady: RBXScriptSignal | Signal,
+	OnSuccess: RBXScriptSignal | Signal,
+	OnFail: RBXScriptSignal | Signal,
 }
 
 --[=[
@@ -37,6 +39,8 @@ type self = {
 	.AutoReset boolean -- Whether or not the debounce should reset after running.
 
 	.OnReady RBXScriptSignal | Signal -- Fires whenever the Cooldown can be be fired.
+	.OnSuccess RBXScriptSignal | Signal -- Fires whenever a :Run() was succesful.
+	.OnFail RBXScriptSignal | Signal -- Fires whenever a :Run() fails.
 ]=]
 
 --[=[
@@ -118,6 +122,8 @@ function Cooldown.new(Time: number): Cooldown
 	self.AutoReset = true
 
 	self.OnReady = self._Trove:Construct(Signal)
+	self.OnSuccess = self._Trove:Construct(Signal)
+	self.OnFail = self._Trove:Construct(Signal)
 
 	return self
 end
@@ -190,11 +196,13 @@ function Cooldown.Run(self: Cooldown, Callback: () -> ()): boolean
 		if self.AutoReset then
 			self:Reset()
 		end
+		self.OnSuccess:Fire()
 		Callback()
 
 		return true
 	end
 
+	self.OnFail:Fire()
 	return false
 end
 

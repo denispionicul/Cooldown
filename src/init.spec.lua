@@ -54,5 +54,27 @@ return function()
             task.wait(2.5)
 			expect(Fired).to.equal(true)
 		end)
+		it("Should Fire the OnSuccess event", function()
+			local Fired = false
+
+			Cooldown.OnSuccess:Once(function()
+				Fired = true
+			end)
+			Cooldown:Run(function()
+
+			end)
+			expect(Fired).to.equal(true)
+		end)
+		it("Should Fire the OnFail event", function()
+			local Fired = false
+
+			Cooldown.OnFail:Once(function()
+				Fired = true
+			end)
+			Cooldown:Run(function()
+
+			end)
+			expect(Fired).to.equal(true)
+		end)
 	end)
 end
