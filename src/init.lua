@@ -39,7 +39,7 @@ type self = {
 	.AutoReset boolean -- Whether or not the debounce should reset after running.
 
 	.OnReady RBXScriptSignal | Signal -- Fires whenever the Cooldown can be be fired.
-	.OnSuccess RBXScriptSignal | Signal -- Fires whenever a :Run() was succesful.
+	.OnSuccess RBXScriptSignal | Signal -- Fires whenever a :Run() was successful.
 	.OnFail RBXScriptSignal | Signal -- Fires whenever a :Run() fails.
 ]=]
 
@@ -72,7 +72,7 @@ type self = {
 --[=[
 	@prop AutoReset boolean
 	@within Cooldown
-	When AutoReset is on, the debounce will reset after a succesful Run() call.
+	When AutoReset is on, the debounce will reset after a successful Run() call.
 
 	An example would be:
 	```lua
@@ -182,7 +182,7 @@ end
 	@method Run
 	@within Cooldown
 	Runs the given callback function if the passed time is higher than the Time property.
-	If AutoReset is true, it will call :Reset() after a succesful run.
+	If AutoReset is true, it will call :Reset() after a successful run.
 
 	@yields
 	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
@@ -254,7 +254,7 @@ end
 --[=[
 	@method RunOrElse
 	@within Cooldown
-	if the :Run() will not be succesful, it will instead call callback2. This won't reset the debounce.
+	if the :Run() will not be successful, it will instead call callback2. This won't reset the debounce.
 
 	@error "No Callback" -- Happens when no Callback is provided.
 	@error "No Callback2" -- Happens when no Callback2 is provided.
@@ -280,7 +280,7 @@ end
 
 	@yields
 	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
-	@param Callback2 () -> () -- The function that will be called on a unsuccesful run. Will yield.
+	@param Callback2 () -> () -- The function that will be called on a unsuccessful run. Will yield.
 ]=]
 function Cooldown.RunOrElse(self: Cooldown, Callback: () -> (), Callback2: () -> ())
 	assert(type(Callback2) == "function", "Callback2 needs to be a function.")
@@ -295,7 +295,7 @@ end
 	@within Cooldown
 	Returns a boolean indicating if the Cooldown is ready to :Run().
 
-	@return boolean -- Indicates if the :Run() will be succesful.
+	@return boolean -- Indicates if the :Run() will be successful.
 ]=]
 function Cooldown.IsReady(self: Cooldown): boolean
 	return os.clock() - self.LastActivation >= self.Time
