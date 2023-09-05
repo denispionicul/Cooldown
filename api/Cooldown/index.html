@@ -18,8 +18,8 @@ local Cooldown = require(Path.Cooldown)
 local DebounceTime = 5
 local Debounce = Cooldown.new(DebounceTime)
 ```"><link data-rh="true" rel="canonical" href="https://denispionicul.github.io/Cooldown/api/Cooldown"><link data-rh="true" rel="alternate" href="https://denispionicul.github.io/Cooldown/api/Cooldown" hreflang="en"><link data-rh="true" rel="alternate" href="https://denispionicul.github.io/Cooldown/api/Cooldown" hreflang="x-default"><link rel="stylesheet" href="/Cooldown/assets/css/styles.19a5646f.css">
-<link rel="preload" href="/Cooldown/assets/js/runtime~main.bd1edc96.js" as="script">
-<link rel="preload" href="/Cooldown/assets/js/main.7feabc3f.js" as="script">
+<link rel="preload" href="/Cooldown/assets/js/runtime~main.b92c9156.js" as="script">
+<link rel="preload" href="/Cooldown/assets/js/main.7e8b634b.js" as="script">
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -33,7 +33,7 @@ local Debounce = Cooldown.new(DebounceTime)
 <span class="token keyword">local</span> DebounceTime <span class="token operator">=</span> <span class="token number">5</span>
 <span class="token keyword">local</span> Debounce <span class="token operator">=</span> Cooldown<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span>DebounceTime<span class="token punctuation">)</span>
 </code></pre>
-</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="types">Types<a href="#types" class="hash-link" aria-label="Direct link to Types" title="Direct link to Types">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Cooldown"><code style="text-decoration:none">Cooldown</code><a href="#Cooldown" class="hash-link" aria-label="Direct link to Cooldown" title="Direct link to Cooldown">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L41"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">interface</code> <code>Cooldown<!-- --> <!-- -->{</code><div class="inset_uKQm"><div><code>Time<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="types">Types<a href="#types" class="hash-link" aria-label="Direct link to Types" title="Direct link to Types">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Cooldown"><code style="text-decoration:none">Cooldown</code><a href="#Cooldown" class="hash-link" aria-label="Direct link to Cooldown" title="Direct link to Cooldown">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L45"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">interface</code> <code>Cooldown<!-- --> <!-- -->{</code><div class="inset_uKQm"><div><code>Time<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
 <p>The time of the debounce</p>
 </span></span></div><div><code>LastActivation<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
 <p>The last time the debounce reset</p>
@@ -41,7 +41,11 @@ local Debounce = Cooldown.new(DebounceTime)
 <p>Whether or not the debounce should reset after running.</p>
 </span></span></div><div><code>OnReady<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/RBXScriptSignal" target="_blank" rel="noopener noreferrer">RBXScriptSignal<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="op_lSLc"> | </code><code class="blue_P4bS">Signal</code><span class="inlineDescription_G7Er">-- <span>
 <p>Fires whenever the Cooldown can be be fired.</p>
-</span></span></div></div><code>}</code></div><div></div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Time"><code style="text-decoration:none">Time</code><a href="#Time" class="hash-link" aria-label="Direct link to Time" title="Direct link to Time">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L67"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.<!-- -->Time<!-- -->:<!-- --> </code> <code class="blue_P4bS">number</code></div><div>
+</span></span></div><div><code>OnSuccess<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/RBXScriptSignal" target="_blank" rel="noopener noreferrer">RBXScriptSignal<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="op_lSLc"> | </code><code class="blue_P4bS">Signal</code><span class="inlineDescription_G7Er">-- <span>
+<p>Fires whenever a :Run() was successful.</p>
+</span></span></div><div><code>OnFail<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/RBXScriptSignal" target="_blank" rel="noopener noreferrer">RBXScriptSignal<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="op_lSLc"> | </code><code class="blue_P4bS">Signal</code><span class="inlineDescription_G7Er">-- <span>
+<p>Fires whenever a :Run() fails.</p>
+</span></span></div></div><code>}</code></div><div></div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Time"><code style="text-decoration:none">Time</code><a href="#Time" class="hash-link" aria-label="Direct link to Time" title="Direct link to Time">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L71"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.<!-- -->Time<!-- -->:<!-- --> </code> <code class="blue_P4bS">number</code></div><div>
 <p>The time property signifies how much time is needed to wait before using :Run()</p>
 <p>An example would be:</p>
 <pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> Cooldown <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span>Path<span class="token punctuation">.</span>Cooldown<span class="token punctuation">)</span>
@@ -68,8 +72,8 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
 </code></pre>
   </div>
 </div>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AutoReset"><code style="text-decoration:none">AutoReset</code><a href="#AutoReset" class="hash-link" aria-label="Direct link to AutoReset" title="Direct link to AutoReset">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L91"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.<!-- -->AutoReset<!-- -->:<!-- --> </code> <code class="blue_P4bS">boolean</code></div><div>
-<p>When AutoReset is on, the debounce will reset after a succesful Run() call.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AutoReset"><code style="text-decoration:none">AutoReset</code><a href="#AutoReset" class="hash-link" aria-label="Direct link to AutoReset" title="Direct link to AutoReset">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L95"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.<!-- -->AutoReset<!-- -->:<!-- --> </code> <code class="blue_P4bS">boolean</code></div><div>
+<p>When AutoReset is on, the debounce will reset after a successful Run() call.</p>
 <p>An example would be:</p>
 <pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> Cooldown <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span>Path<span class="token punctuation">.</span>Cooldown<span class="token punctuation">)</span>
 
@@ -86,13 +90,13 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
 
 Debounce<span class="token punctuation">:</span><span class="token function">Reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Reset the debounce</span>
 </code></pre>
-</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="new"><code style="text-decoration:none">new</code><a href="#new" class="hash-link" aria-label="Direct link to new" title="Direct link to new">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L104"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.</code><code class="green_DgR4">new</code><code>(</code><div class="inset_uKQm"><div><code>Time<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="new"><code style="text-decoration:none">new</code><a href="#new" class="hash-link" aria-label="Direct link to new" title="Direct link to new">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L108"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.</code><code class="green_DgR4">new</code><code>(</code><div class="inset_uKQm"><div><code>Time<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
 <p>The time property, for more info check the "Time" property.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Cooldown/api/Cooldown#Cooldown">Cooldown</a></code></div><div>
 <p>Returns a new Cooldown.</p>
-</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Time&quot;</td><td>Happens when no Time property is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Is"><code style="text-decoration:none">Is</code><a href="#Is" class="hash-link" aria-label="Direct link to Is" title="Direct link to Is">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L299"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.</code><code class="green_DgR4">Is</code><code>(</code><code>Table<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Cooldown/api/Cooldown#Cooldown">Cooldown?</a></code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Time&quot;</td><td>Happens when no Time property is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Is"><code style="text-decoration:none">Is</code><a href="#Is" class="hash-link" aria-label="Direct link to Is" title="Direct link to Is">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L307"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.</code><code class="green_DgR4">Is</code><code>(</code><code>Table<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Cooldown/api/Cooldown#Cooldown">Cooldown?</a></code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>Returns a boolean indicating if the given table is a Cooldown.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Reset"><code style="text-decoration:none">Reset</code><a href="#Reset" class="hash-link" aria-label="Direct link to Reset" title="Direct link to Reset">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L155"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Reset</code><code>(</code><div class="inset_uKQm"><div><code>Delay<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Reset"><code style="text-decoration:none">Reset</code><a href="#Reset" class="hash-link" aria-label="Direct link to Reset" title="Direct link to Reset">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L161"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Reset</code><code>(</code><div class="inset_uKQm"><div><code>Delay<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
 <p>The amount of delay to add to the Time</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
 <p>The cooldown time + delay.</p>
@@ -121,16 +125,16 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
 	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"This will run"</span><span class="token punctuation">)</span>  <span class="token comment">-- will print because the :Run will be ready.</span>
 <span class="token keyword">end</span><span class="token punctuation">)</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Run"><code style="text-decoration:none">Run</code><a href="#Run" class="hash-link" aria-label="Direct link to Run" title="Direct link to Run">​</a></h3><span class="badge_Ba2I" style="color:#f1c40f"><span class="badgeTooltip_cWXP">This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts.</span><span class="badgeToolTipTail_H9D_"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#f1c40f" role="img" aria-label="This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts."><path d="M96.4 11.9c-1.4-2.5-4-4-6.9-4H10.8c-2.9 0-5.4 1.5-6.9 4-1.4 2.5-1.4 5.5 0 7.9L43.3 88c1.4 2.5 4 4 6.9 4 2.9 0 5.4-1.5 6.9-4l39.3-68.2c1.4-2.4 1.4-5.4 0-7.9zM46.3 54.5c1.1-1.1 2.3-1.6 3.8-1.6s2.8.5 3.8 1.6c1.1 1.1 1.6 2.3 1.6 3.8s-.5 2.8-1.6 3.8c-1.1 1.1-2.3 1.6-3.8 1.6s-2.8-.5-3.8-1.6c-1.1-1.1-1.6-2.3-1.6-3.8.1-1.5.6-2.8 1.6-3.8zm-.5-4.9V21.8h8.8v27.8h-8.8z"></path></svg> <!-- -->Yields</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L186"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Run</code><code>(</code><div class="inset_uKQm"><div><code>Callback<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Run"><code style="text-decoration:none">Run</code><a href="#Run" class="hash-link" aria-label="Direct link to Run" title="Direct link to Run">​</a></h3><span class="badge_Ba2I" style="color:#f1c40f"><span class="badgeTooltip_cWXP">This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts.</span><span class="badgeToolTipTail_H9D_"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#f1c40f" role="img" aria-label="This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts."><path d="M96.4 11.9c-1.4-2.5-4-4-6.9-4H10.8c-2.9 0-5.4 1.5-6.9 4-1.4 2.5-1.4 5.5 0 7.9L43.3 88c1.4 2.5 4 4 6.9 4 2.9 0 5.4-1.5 6.9-4l39.3-68.2c1.4-2.4 1.4-5.4 0-7.9zM46.3 54.5c1.1-1.1 2.3-1.6 3.8-1.6s2.8.5 3.8 1.6c1.1 1.1 1.6 2.3 1.6 3.8s-.5 2.8-1.6 3.8c-1.1 1.1-2.3 1.6-3.8 1.6s-2.8-.5-3.8-1.6c-1.1-1.1-1.6-2.3-1.6-3.8.1-1.5.6-2.8 1.6-3.8zm-.5-4.9V21.8h8.8v27.8h-8.8z"></path></svg> <!-- -->Yields</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L192"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Run</code><code>(</code><div class="inset_uKQm"><div><code>Callback<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function that will be called on a successful run. Will yield.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>Returns a boolean indicating if the run was successful or not.</p>
 </span></span></div><div>
 <p>
   Runs the given callback function if the passed time is higher than the Time property.
-  If AutoReset is true, it will call :Reset() after a succesful run.
+  If AutoReset is true, it will call :Reset() after a successful run.
 </p>
-</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Callback&quot;</td><td>Happens when no callback is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="RunIf"><code style="text-decoration:none">RunIf</code><a href="#RunIf" class="hash-link" aria-label="Direct link to RunIf" title="Direct link to RunIf">​</a></h3><span class="badge_Ba2I" style="color:#f1c40f"><span class="badgeTooltip_cWXP">This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts.</span><span class="badgeToolTipTail_H9D_"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#f1c40f" role="img" aria-label="This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts."><path d="M96.4 11.9c-1.4-2.5-4-4-6.9-4H10.8c-2.9 0-5.4 1.5-6.9 4-1.4 2.5-1.4 5.5 0 7.9L43.3 88c1.4 2.5 4 4 6.9 4 2.9 0 5.4-1.5 6.9-4l39.3-68.2c1.4-2.4 1.4-5.4 0-7.9zM46.3 54.5c1.1-1.1 2.3-1.6 3.8-1.6s2.8.5 3.8 1.6c1.1 1.1 1.6 2.3 1.6 3.8s-.5 2.8-1.6 3.8c-1.1 1.1-2.3 1.6-3.8 1.6s-2.8-.5-3.8-1.6c-1.1-1.1-1.6-2.3-1.6-3.8.1-1.5.6-2.8 1.6-3.8zm-.5-4.9V21.8h8.8v27.8h-8.8z"></path></svg> <!-- -->Yields</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L230"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">RunIf</code><code>(</code><div class="inset_uKQm"><div><code>Predicate<!-- -->: </code><code class="blue_P4bS">boolean</code><code class="op_lSLc"> | </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Callback&quot;</td><td>Happens when no callback is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="RunIf"><code style="text-decoration:none">RunIf</code><a href="#RunIf" class="hash-link" aria-label="Direct link to RunIf" title="Direct link to RunIf">​</a></h3><span class="badge_Ba2I" style="color:#f1c40f"><span class="badgeTooltip_cWXP">This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts.</span><span class="badgeToolTipTail_H9D_"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#f1c40f" role="img" aria-label="This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts."><path d="M96.4 11.9c-1.4-2.5-4-4-6.9-4H10.8c-2.9 0-5.4 1.5-6.9 4-1.4 2.5-1.4 5.5 0 7.9L43.3 88c1.4 2.5 4 4 6.9 4 2.9 0 5.4-1.5 6.9-4l39.3-68.2c1.4-2.4 1.4-5.4 0-7.9zM46.3 54.5c1.1-1.1 2.3-1.6 3.8-1.6s2.8.5 3.8 1.6c1.1 1.1 1.6 2.3 1.6 3.8s-.5 2.8-1.6 3.8c-1.1 1.1-2.3 1.6-3.8 1.6s-2.8-.5-3.8-1.6c-1.1-1.1-1.6-2.3-1.6-3.8.1-1.5.6-2.8 1.6-3.8zm-.5-4.9V21.8h8.8v27.8h-8.8z"></path></svg> <!-- -->Yields</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L238"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">RunIf</code><code>(</code><div class="inset_uKQm"><div><code>Predicate<!-- -->: </code><code class="blue_P4bS">boolean</code><code class="op_lSLc"> | </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The boolean or function that returns a boolean indicating if :Run() will be called.</p>
 </span></span></div><div><code>Callback<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function that will be called on a successful run. Will yield.</p>
@@ -152,12 +156,12 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
 	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"This will not run"</span><span class="token punctuation">)</span>  <span class="token comment">-- does not print because the first parameter (Predicate) is false.</span>
 <span class="token keyword">end</span><span class="token punctuation">)</span>
 </code></pre>
-</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Predicate&quot;</td><td>Happens when no Predicate, indicated by a boolean or boolean-returning function is provided.</td></tr><tr><td>&quot;No Callback&quot;</td><td>Happens when no callback is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="RunOrElse"><code style="text-decoration:none">RunOrElse</code><a href="#RunOrElse" class="hash-link" aria-label="Direct link to RunOrElse" title="Direct link to RunOrElse">​</a></h3><span class="badge_Ba2I" style="color:#f1c40f"><span class="badgeTooltip_cWXP">This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts.</span><span class="badgeToolTipTail_H9D_"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#f1c40f" role="img" aria-label="This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts."><path d="M96.4 11.9c-1.4-2.5-4-4-6.9-4H10.8c-2.9 0-5.4 1.5-6.9 4-1.4 2.5-1.4 5.5 0 7.9L43.3 88c1.4 2.5 4 4 6.9 4 2.9 0 5.4-1.5 6.9-4l39.3-68.2c1.4-2.4 1.4-5.4 0-7.9zM46.3 54.5c1.1-1.1 2.3-1.6 3.8-1.6s2.8.5 3.8 1.6c1.1 1.1 1.6 2.3 1.6 3.8s-.5 2.8-1.6 3.8c-1.1 1.1-2.3 1.6-3.8 1.6s-2.8-.5-3.8-1.6c-1.1-1.1-1.6-2.3-1.6-3.8.1-1.5.6-2.8 1.6-3.8zm-.5-4.9V21.8h8.8v27.8h-8.8z"></path></svg> <!-- -->Yields</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L277"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">RunOrElse</code><code>(</code><div class="inset_uKQm"><div><code>Callback<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Predicate&quot;</td><td>Happens when no Predicate, indicated by a boolean or boolean-returning function is provided.</td></tr><tr><td>&quot;No Callback&quot;</td><td>Happens when no callback is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="RunOrElse"><code style="text-decoration:none">RunOrElse</code><a href="#RunOrElse" class="hash-link" aria-label="Direct link to RunOrElse" title="Direct link to RunOrElse">​</a></h3><span class="badge_Ba2I" style="color:#f1c40f"><span class="badgeTooltip_cWXP">This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts.</span><span class="badgeToolTipTail_H9D_"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#f1c40f" role="img" aria-label="This is a yielding function. When called, it will pause the Lua thread that called the function until a result is ready to be returned, without interrupting other scripts."><path d="M96.4 11.9c-1.4-2.5-4-4-6.9-4H10.8c-2.9 0-5.4 1.5-6.9 4-1.4 2.5-1.4 5.5 0 7.9L43.3 88c1.4 2.5 4 4 6.9 4 2.9 0 5.4-1.5 6.9-4l39.3-68.2c1.4-2.4 1.4-5.4 0-7.9zM46.3 54.5c1.1-1.1 2.3-1.6 3.8-1.6s2.8.5 3.8 1.6c1.1 1.1 1.6 2.3 1.6 3.8s-.5 2.8-1.6 3.8c-1.1 1.1-2.3 1.6-3.8 1.6s-2.8-.5-3.8-1.6c-1.1-1.1-1.6-2.3-1.6-3.8.1-1.5.6-2.8 1.6-3.8zm-.5-4.9V21.8h8.8v27.8h-8.8z"></path></svg> <!-- -->Yields</span></span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L285"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">RunOrElse</code><code>(</code><div class="inset_uKQm"><div><code>Callback<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function that will be called on a successful run. Will yield.</p>
 </span></span></div><div><code>Callback2<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><span class="inlineDescription_G7Er">-- <span>
-<p>The function that will be called on a unsuccesful run. Will yield.</p>
+<p>The function that will be called on a unsuccessful run. Will yield.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
-<p>if the :Run() will not be succesful, it will instead call callback2. This won't reset the debounce.</p>
+<p>if the :Run() will not be successful, it will instead call callback2. This won't reset the debounce.</p>
 <p>An example would be:</p>
 <pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> Cooldown <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span>Path<span class="token punctuation">.</span>Cooldown<span class="token punctuation">)</span>
 
@@ -175,11 +179,11 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
 	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"This will run"</span><span class="token punctuation">)</span> <span class="token comment">-- will print because the :Run() failed.</span>
 <span class="token keyword">end</span><span class="token punctuation">)</span>
 </code></pre>
-</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Callback&quot;</td><td>Happens when no Callback is provided.</td></tr><tr><td>&quot;No Callback2&quot;</td><td>Happens when no Callback2 is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="IsReady"><code style="text-decoration:none">IsReady</code><a href="#IsReady" class="hash-link" aria-label="Direct link to IsReady" title="Direct link to IsReady">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L292"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">IsReady</code><code>(</code><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
-<p>Indicates if the :Run() will be succesful.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Callback&quot;</td><td>Happens when no Callback is provided.</td></tr><tr><td>&quot;No Callback2&quot;</td><td>Happens when no Callback2 is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="IsReady"><code style="text-decoration:none">IsReady</code><a href="#IsReady" class="hash-link" aria-label="Direct link to IsReady" title="Direct link to IsReady">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L300"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">IsReady</code><code>(</code><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Indicates if the :Run() will be successful.</p>
 </span></span></div><div>
 <p>Returns a boolean indicating if the Cooldown is ready to :Run().</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Destroy"><code style="text-decoration:none">Destroy</code><a href="#Destroy" class="hash-link" aria-label="Direct link to Destroy" title="Direct link to Destroy">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L308"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Destroy</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Destroy"><code style="text-decoration:none">Destroy</code><a href="#Destroy" class="hash-link" aria-label="Direct link to Destroy" title="Direct link to Destroy">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L316"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Destroy</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Destroys the Cooldown.</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
@@ -207,7 +211,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
                 }
             ],
             &quot;source&quot;: {
-                &quot;line&quot;: 104,
+                &quot;line&quot;: 108,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
@@ -229,13 +233,13 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             ],
             &quot;function_type&quot;: &quot;method&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 155,
+                &quot;line&quot;: 161,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
         {
             &quot;name&quot;: &quot;Run&quot;,
-            &quot;desc&quot;: &quot;Runs the given callback function if the passed time is higher than the Time property.\nIf AutoReset is true, it will call :Reset() after a succesful run.&quot;,
+            &quot;desc&quot;: &quot;Runs the given callback function if the passed time is higher than the Time property.\nIf AutoReset is true, it will call :Reset() after a successful run.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;Callback&quot;,
@@ -258,7 +262,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             ],
             &quot;yields&quot;: true,
             &quot;source&quot;: {
-                &quot;line&quot;: 186,
+                &quot;line&quot;: 192,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
@@ -296,13 +300,13 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             ],
             &quot;yields&quot;: true,
             &quot;source&quot;: {
-                &quot;line&quot;: 230,
+                &quot;line&quot;: 238,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
         {
             &quot;name&quot;: &quot;RunOrElse&quot;,
-            &quot;desc&quot;: &quot;if the :Run() will not be succesful, it will instead call callback2. This won&#x27;t reset the debounce.\n\n\nAn example would be:\n```lua\nlocal Cooldown = require(Path.Cooldown)\n\nlocal Debounce = Cooldown.new(5)\n\nDebounce:RunOrElse(function()\n\tprint(\&quot;This will run\&quot;)  -- prints\nend, function()\n\tprint(\&quot;This will not print\&quot;) -- doesn&#x27;t print because the :Run() will be successful.\nend)\n\nDebounce:RunOrElse(function()\n\tprint(\&quot;This will not run\&quot;)  -- does not print because the debounce hasn&#x27;t finished waiting.\nend, function()\n\tprint(\&quot;This will run\&quot;) -- will print because the :Run() failed.\nend)\n```&quot;,
+            &quot;desc&quot;: &quot;if the :Run() will not be successful, it will instead call callback2. This won&#x27;t reset the debounce.\n\n\nAn example would be:\n```lua\nlocal Cooldown = require(Path.Cooldown)\n\nlocal Debounce = Cooldown.new(5)\n\nDebounce:RunOrElse(function()\n\tprint(\&quot;This will run\&quot;)  -- prints\nend, function()\n\tprint(\&quot;This will not print\&quot;) -- doesn&#x27;t print because the :Run() will be successful.\nend)\n\nDebounce:RunOrElse(function()\n\tprint(\&quot;This will not run\&quot;)  -- does not print because the debounce hasn&#x27;t finished waiting.\nend, function()\n\tprint(\&quot;This will run\&quot;) -- will print because the :Run() failed.\nend)\n```&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;Callback&quot;,
@@ -311,7 +315,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
                 },
                 {
                     &quot;name&quot;: &quot;Callback2&quot;,
-                    &quot;desc&quot;: &quot;The function that will be called on a unsuccesful run. Will yield.&quot;,
+                    &quot;desc&quot;: &quot;The function that will be called on a unsuccessful run. Will yield.&quot;,
                     &quot;lua_type&quot;: &quot;() -&gt; ()&quot;
                 }
             ],
@@ -329,7 +333,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             ],
             &quot;yields&quot;: true,
             &quot;source&quot;: {
-                &quot;line&quot;: 277,
+                &quot;line&quot;: 285,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
@@ -339,13 +343,13 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             &quot;params&quot;: [],
             &quot;returns&quot;: [
                 {
-                    &quot;desc&quot;: &quot;Indicates if the :Run() will be succesful.&quot;,
+                    &quot;desc&quot;: &quot;Indicates if the :Run() will be successful.&quot;,
                     &quot;lua_type&quot;: &quot;boolean&quot;
                 }
             ],
             &quot;function_type&quot;: &quot;method&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 292,
+                &quot;line&quot;: 300,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
@@ -367,7 +371,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 299,
+                &quot;line&quot;: 307,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
@@ -378,7 +382,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;method&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 308,
+                &quot;line&quot;: 316,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         }
@@ -389,16 +393,16 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             &quot;desc&quot;: &quot;The time property signifies how much time is needed to wait before using :Run()\n\nAn example would be:\n```lua\nlocal Cooldown = require(Path.Cooldown)\n\nlocal Debounce = Cooldown.new(5) -- The first parameter is the Time\n-- Can be changed with Debounce.Time = 5\n\nDebounce:Run(function()\n\tprint(\&quot;This will run\&quot;)  -- prints\nend)\n\nDebounce:Run(function()\n\tprint(\&quot;This won&#x27;t run\&quot;)  -- won&#x27;t print because the debounce hasn&#x27;t finished waiting 5 seconds\nend)\n```\n\n:::note\n\tCalling :Run() when the debounce isn&#x27;t ready won&#x27;t yield.\n:::&quot;,
             &quot;lua_type&quot;: &quot;number&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 67,
+                &quot;line&quot;: 71,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
         {
             &quot;name&quot;: &quot;AutoReset&quot;,
-            &quot;desc&quot;: &quot;When AutoReset is on, the debounce will reset after a succesful Run() call.\n\nAn example would be:\n```lua\nlocal Cooldown = require(Path.Cooldown)\n\nlocal Debounce = Cooldown.new(5)\nDebounce.AutoReset = false\n\nDebounce:Run(function()\n\tprint(\&quot;This will run\&quot;)  -- prints\nend)\n\nDebounce:Run(function()\n\tprint(\&quot;This will still run\&quot;)  -- still prints because AutoReset is false and the debounce did not reset\nend)\n\nDebounce:Reset() -- Reset the debounce\n```&quot;,
+            &quot;desc&quot;: &quot;When AutoReset is on, the debounce will reset after a successful Run() call.\n\nAn example would be:\n```lua\nlocal Cooldown = require(Path.Cooldown)\n\nlocal Debounce = Cooldown.new(5)\nDebounce.AutoReset = false\n\nDebounce:Run(function()\n\tprint(\&quot;This will run\&quot;)  -- prints\nend)\n\nDebounce:Run(function()\n\tprint(\&quot;This will still run\&quot;)  -- still prints because AutoReset is false and the debounce did not reset\nend)\n\nDebounce:Reset() -- Reset the debounce\n```&quot;,
             &quot;lua_type&quot;: &quot;boolean&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 91,
+                &quot;line&quot;: 95,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         }
@@ -427,10 +431,20 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
                     &quot;name&quot;: &quot;OnReady&quot;,
                     &quot;lua_type&quot;: &quot;RBXScriptSignal | Signal&quot;,
                     &quot;desc&quot;: &quot;Fires whenever the Cooldown can be be fired.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;OnSuccess&quot;,
+                    &quot;lua_type&quot;: &quot;RBXScriptSignal | Signal&quot;,
+                    &quot;desc&quot;: &quot;Fires whenever a :Run() was successful.&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;OnFail&quot;,
+                    &quot;lua_type&quot;: &quot;RBXScriptSignal | Signal&quot;,
+                    &quot;desc&quot;: &quot;Fires whenever a :Run() fails.&quot;
                 }
             ],
             &quot;source&quot;: {
-                &quot;line&quot;: 41,
+                &quot;line&quot;: 45,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         }
@@ -442,7 +456,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
         &quot;path&quot;: &quot;src/init.lua&quot;
     }
 }</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#Cooldown" class="table-of-contents__link toc-highlight">Cooldown</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#AutoReset" class="table-of-contents__link toc-highlight">AutoReset</a></li><li><a href="#Time" class="table-of-contents__link toc-highlight">Time</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Destroy" class="table-of-contents__link toc-highlight">:Destroy</a></li><li><a href="#IsReady" class="table-of-contents__link toc-highlight">:IsReady</a></li><li><a href="#Reset" class="table-of-contents__link toc-highlight">:Reset</a></li><li><a href="#Run" class="table-of-contents__link toc-highlight">:Run</a></li><li><a href="#RunIf" class="table-of-contents__link toc-highlight">:RunIf</a></li><li><a href="#RunOrElse" class="table-of-contents__link toc-highlight">:RunOrElse</a></li><li><a href="#Is" class="table-of-contents__link toc-highlight">.Is</a></li><li><a href="#new" class="table-of-contents__link toc-highlight">.new</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 denispionicul. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
-<script src="/Cooldown/assets/js/runtime~main.bd1edc96.js"></script>
-<script src="/Cooldown/assets/js/main.7feabc3f.js"></script>
+<script src="/Cooldown/assets/js/runtime~main.b92c9156.js"></script>
+<script src="/Cooldown/assets/js/main.7e8b634b.js"></script>
 </body>
 </html>
