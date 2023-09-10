@@ -302,6 +302,32 @@ function Cooldown.IsReady(self: Cooldown): boolean
 end
 
 --[=[
+	@method GetPassed
+	@within Cooldown
+	@param Clamped boolean -- If this is true, it will use math.clamp to make sure the value returned is min 0 and max the time.
+	Returns a boolean indicating the passed time since the last :Run().
+
+	@return number -- The passed time.
+]=]
+function Cooldown.GetPassed(self: Cooldown, Clamped: boolean?): number
+	local Passed = os.clock() - self.LastActivation
+	return if Clamped == true then math.clamp(Passed, 0, self.Time) else Passed
+end
+
+--[=[
+	@method GetAlpha
+	@within Cooldown
+	@param Reversed boolean -- If true, will return alpha as 0 if fully ready to :Run() instead of 1.
+	Returns the time before the :Run() is ready in a value between 0-1.
+
+	@return number -- The passed time indicated by an alpha.
+]=]
+function Cooldown.GetAlpha(self: Cooldown, Reversed: boolean?): number
+	local Passed = if Reversed then self.Time / self:GetPassed() else self:GetPassed() / self.Time
+	return math.clamp(Passed, 0, 1)
+end
+
+--[=[
 	Returns a boolean indicating if the given table is a Cooldown.
 ]=]
 function Cooldown.Is(Table: Cooldown?): boolean
