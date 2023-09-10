@@ -298,7 +298,7 @@ end
 	@return boolean -- Indicates if the :Run() will be successful.
 ]=]
 function Cooldown.IsReady(self: Cooldown): boolean
-	return os.clock() - self.LastActivation >= self.Time
+	return self:GetPassed() >= self.Time
 end
 
 --[=[
