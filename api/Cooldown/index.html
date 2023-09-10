@@ -18,8 +18,8 @@ local Cooldown = require(Path.Cooldown)
 local DebounceTime = 5
 local Debounce = Cooldown.new(DebounceTime)
 ```"><link data-rh="true" rel="canonical" href="https://denispionicul.github.io/Cooldown/api/Cooldown"><link data-rh="true" rel="alternate" href="https://denispionicul.github.io/Cooldown/api/Cooldown" hreflang="en"><link data-rh="true" rel="alternate" href="https://denispionicul.github.io/Cooldown/api/Cooldown" hreflang="x-default"><link rel="stylesheet" href="/Cooldown/assets/css/styles.19a5646f.css">
-<link rel="preload" href="/Cooldown/assets/js/runtime~main.b92c9156.js" as="script">
-<link rel="preload" href="/Cooldown/assets/js/main.7e8b634b.js" as="script">
+<link rel="preload" href="/Cooldown/assets/js/runtime~main.3c7c5078.js" as="script">
+<link rel="preload" href="/Cooldown/assets/js/main.11794d80.js" as="script">
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -94,7 +94,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Res
 <p>The time property, for more info check the "Time" property.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Cooldown/api/Cooldown#Cooldown">Cooldown</a></code></div><div>
 <p>Returns a new Cooldown.</p>
-</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Time&quot;</td><td>Happens when no Time property is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Is"><code style="text-decoration:none">Is</code><a href="#Is" class="hash-link" aria-label="Direct link to Is" title="Direct link to Is">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L307"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.</code><code class="green_DgR4">Is</code><code>(</code><code>Table<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Cooldown/api/Cooldown#Cooldown">Cooldown?</a></code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>&quot;No Time&quot;</td><td>Happens when no Time property is provided.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Is"><code style="text-decoration:none">Is</code><a href="#Is" class="hash-link" aria-label="Direct link to Is" title="Direct link to Is">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L333"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->.</code><code class="green_DgR4">Is</code><code>(</code><code>Table<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Cooldown/api/Cooldown#Cooldown">Cooldown?</a></code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>Returns a boolean indicating if the given table is a Cooldown.</p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Reset"><code style="text-decoration:none">Reset</code><a href="#Reset" class="hash-link" aria-label="Direct link to Reset" title="Direct link to Reset">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L161"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Reset</code><code>(</code><div class="inset_uKQm"><div><code>Delay<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
 <p>The amount of delay to add to the Time</p>
@@ -183,7 +183,19 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
 <p>Indicates if the :Run() will be successful.</p>
 </span></span></div><div>
 <p>Returns a boolean indicating if the Cooldown is ready to :Run().</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Destroy"><code style="text-decoration:none">Destroy</code><a href="#Destroy" class="hash-link" aria-label="Direct link to Destroy" title="Direct link to Destroy">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L316"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Destroy</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GetPassed"><code style="text-decoration:none">GetPassed</code><a href="#GetPassed" class="hash-link" aria-label="Direct link to GetPassed" title="Direct link to GetPassed">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L312"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">GetPassed</code><code>(</code><div class="inset_uKQm"><div><code>Clamped<!-- -->: </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>If this is true, it will use math.clamp to make sure the value returned is min 0 and max the time.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The passed time.</p>
+</span></span></div><div>
+<p>Returns a boolean indicating the passed time since the last :Run().</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GetAlpha"><code style="text-decoration:none">GetAlpha</code><a href="#GetAlpha" class="hash-link" aria-label="Direct link to GetAlpha" title="Direct link to GetAlpha">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L325"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">GetAlpha</code><code>(</code><div class="inset_uKQm"><div><code>Reversed<!-- -->: </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>If true, will return alpha as 0 if fully ready to :Run() instead of 1.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>The passed time indicated by an alpha.</p>
+</span></span></div><div>
+<p>Returns the time before the :Run() is ready in a value between 0-1.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Destroy"><code style="text-decoration:none">Destroy</code><a href="#Destroy" class="hash-link" aria-label="Direct link to Destroy" title="Direct link to Destroy">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/denispionicul/Cooldown/blob/main/src/init.lua#L342"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Cooldown<!-- -->:</code><code class="green_DgR4">Destroy</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Destroys the Cooldown.</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
@@ -354,6 +366,50 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             }
         },
         {
+            &quot;name&quot;: &quot;GetPassed&quot;,
+            &quot;desc&quot;: &quot;Returns a boolean indicating the passed time since the last :Run().&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;Clamped&quot;,
+                    &quot;desc&quot;: &quot;If this is true, it will use math.clamp to make sure the value returned is min 0 and max the time.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The passed time.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 312,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;GetAlpha&quot;,
+            &quot;desc&quot;: &quot;Returns the time before the :Run() is ready in a value between 0-1.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;Reversed&quot;,
+                    &quot;desc&quot;: &quot;If true, will return alpha as 0 if fully ready to :Run() instead of 1.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The passed time indicated by an alpha.&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 325,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
             &quot;name&quot;: &quot;Is&quot;,
             &quot;desc&quot;: &quot;Returns a boolean indicating if the given table is a Cooldown.&quot;,
             &quot;params&quot;: [
@@ -371,7 +427,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 307,
+                &quot;line&quot;: 333,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         },
@@ -382,7 +438,7 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;method&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 316,
+                &quot;line&quot;: 342,
                 &quot;path&quot;: &quot;src/init.lua&quot;
             }
         }
@@ -455,8 +511,8 @@ Debounce<span class="token punctuation">:</span><span class="token function">Run
         &quot;line&quot;: 21,
         &quot;path&quot;: &quot;src/init.lua&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#Cooldown" class="table-of-contents__link toc-highlight">Cooldown</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#AutoReset" class="table-of-contents__link toc-highlight">AutoReset</a></li><li><a href="#Time" class="table-of-contents__link toc-highlight">Time</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Destroy" class="table-of-contents__link toc-highlight">:Destroy</a></li><li><a href="#IsReady" class="table-of-contents__link toc-highlight">:IsReady</a></li><li><a href="#Reset" class="table-of-contents__link toc-highlight">:Reset</a></li><li><a href="#Run" class="table-of-contents__link toc-highlight">:Run</a></li><li><a href="#RunIf" class="table-of-contents__link toc-highlight">:RunIf</a></li><li><a href="#RunOrElse" class="table-of-contents__link toc-highlight">:RunOrElse</a></li><li><a href="#Is" class="table-of-contents__link toc-highlight">.Is</a></li><li><a href="#new" class="table-of-contents__link toc-highlight">.new</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 denispionicul. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
-<script src="/Cooldown/assets/js/runtime~main.b92c9156.js"></script>
-<script src="/Cooldown/assets/js/main.7e8b634b.js"></script>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#Cooldown" class="table-of-contents__link toc-highlight">Cooldown</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#AutoReset" class="table-of-contents__link toc-highlight">AutoReset</a></li><li><a href="#Time" class="table-of-contents__link toc-highlight">Time</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Destroy" class="table-of-contents__link toc-highlight">:Destroy</a></li><li><a href="#GetAlpha" class="table-of-contents__link toc-highlight">:GetAlpha</a></li><li><a href="#GetPassed" class="table-of-contents__link toc-highlight">:GetPassed</a></li><li><a href="#IsReady" class="table-of-contents__link toc-highlight">:IsReady</a></li><li><a href="#Reset" class="table-of-contents__link toc-highlight">:Reset</a></li><li><a href="#Run" class="table-of-contents__link toc-highlight">:Run</a></li><li><a href="#RunIf" class="table-of-contents__link toc-highlight">:RunIf</a></li><li><a href="#RunOrElse" class="table-of-contents__link toc-highlight">:RunOrElse</a></li><li><a href="#Is" class="table-of-contents__link toc-highlight">.Is</a></li><li><a href="#new" class="table-of-contents__link toc-highlight">.new</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 denispionicul. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/Cooldown/assets/js/runtime~main.3c7c5078.js"></script>
+<script src="/Cooldown/assets/js/main.11794d80.js"></script>
 </body>
 </html>
