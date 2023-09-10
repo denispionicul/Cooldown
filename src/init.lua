@@ -1,5 +1,5 @@
 --!nonstrict
---Version 1.2.0
+--Version 1.3.0
 
 --Dependencies
 local Signal = require(script.Parent:FindFirstChild("Signal") or script.Signal)
