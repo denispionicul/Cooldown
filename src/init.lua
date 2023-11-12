@@ -1,5 +1,5 @@
 --!nonstrict
---Version 1.3.0
+--Version 1.4.0
 
 --Dependencies
 local Signal = require(script.Parent:FindFirstChild("Signal") or script.Signal)
@@ -21,14 +21,22 @@ local WaitFor = require(script.Parent:FindFirstChild("WaitFor") or script.WaitFo
 local Cooldown = {}
 Cooldown.__index = Cooldown
 
-type self = {
+export type Cooldown = {
 	Time: number,
 	LastActivation: number,
 	AutoReset: boolean,
 
-	OnReady: RBXScriptSignal | Signal,
-	OnSuccess: RBXScriptSignal | Signal,
-	OnFail: RBXScriptSignal | Signal,
+	OnReady: Signal.Signal,
+	OnSuccess: Signal.Signal,
+	OnFail: Signal.Signal,
+
+	Reset: (self: Cooldown, Delay: number?) -> number,
+	Run: (self: Cooldown, Callback: () -> nil) -> boolean,
+	RunIf: (self: Cooldown, Predicate: boolean | () -> boolean, Callback: () -> nil) -> boolean,
+	RunOrElse: (self: Cooldown, Callback: () -> nil, Callback2: () -> nil) -> nil,
+	IsReady: (self: Cooldown) -> boolean,
+	GetPassed: (self: Cooldown, Clamped: boolean?) -> number,
+	GetAlpha: (self: Cooldown, Reversed: boolean?) -> number
 }
 
 --[=[
@@ -38,9 +46,9 @@ type self = {
 	.LastActivation number -- The last time the debounce reset
 	.AutoReset boolean -- Whether or not the debounce should reset after running.
 
-	.OnReady RBXScriptSignal | Signal -- Fires whenever the Cooldown can be be fired.
-	.OnSuccess RBXScriptSignal | Signal -- Fires whenever a :Run() was successful.
-	.OnFail RBXScriptSignal | Signal -- Fires whenever a :Run() fails.
+	.OnReady RBXScriptSignal -- Fires whenever the Cooldown can be be fired.
+	.OnSuccess RBXScriptSignal -- Fires whenever a :Run() was successful.
+	.OnFail RBXScriptSignal -- Fires whenever a :Run() fails.
 ]=]
 
 --[=[
@@ -81,6 +89,8 @@ type self = {
 	local Debounce = Cooldown.new(5)
 	Debounce.AutoReset = false
 
+	-- Keep in mind you can also set the AutoReset by the second parameter in the constructor: Cooldown.new(5, false)
+
 	Debounce:Run(function()
 		print("This will run")  -- prints
 	end)
@@ -93,19 +103,66 @@ type self = {
 	```
 ]=]
 
-export type Cooldown = typeof(setmetatable({} :: self, Cooldown))
-
-function Cooldown.__tostring(_: Cooldown)
+-- Metamethods
+function Cooldown.__tostring(_: Cooldown): string
 	return "Cooldown"
 end
 
+function Cooldown.__unm(self: Cooldown): number
+	return self:GetPassed(false) * -1
+end
+
+function Cooldown.__add(self: Cooldown, Value: number): number
+	return self:GetPassed(false) + Value
+end
+
+function Cooldown.__sub(self: Cooldown, Value: number): number
+	return self:GetPassed(false) - Value
+end
+
+function Cooldown.__mul(self: Cooldown, Value: number): number
+	return self:GetPassed(false) * Value
+end
+
+function Cooldown.__div(self: Cooldown, Value: number): number
+	return self:GetPassed(false) / Value
+end
+
+function Cooldown.__idiv(self: Cooldown, Value: number): number
+	return math.floor(self:GetAlpha(false) / Value)
+end
+
+function Cooldown.__mod(self: Cooldown, Value: number): number
+	return self:GetPassed(false) % Value
+end
+
+function Cooldown.__pow(self: Cooldown, Value: number): number
+	return self:GetPassed(false) ^ Value
+end
+
+function Cooldown.__eq(self: Cooldown, Value: any): boolean
+	return self:GetPassed(false) == Value
+end
+
+function Cooldown.__lt(self: Cooldown, Value: number): boolean
+	return self:GetPassed(false) < Value
+end
+
+function Cooldown.__le(self: Cooldown, Value): boolean
+	return self:GetPassed(false) <= Value
+end
+
+Cooldown.__call = Cooldown.Run
+
+-- Constructor and Methods
 --[=[
 	Returns a new Cooldown.
 
 	@param Time number -- The time property, for more info check the "Time" property.
+	@param AutoReset boolean? -- Sets the AutoReset value to the boolean provided, please refer to [Cooldown.AutoReset]
 	@error "No Time" -- Happens when no Time property is provided.
 ]=]
-function Cooldown.new(Time: number): Cooldown
+function Cooldown.new(Time: number, AutoReset: boolean?): Cooldown
 	assert(type(Time) == "number", "You must provide a number for the Time")
 
 	local self = setmetatable({}, Cooldown)
@@ -119,7 +176,7 @@ function Cooldown.new(Time: number): Cooldown
 	-- Usable
 	self.Time = Time
 	self.LastActivation = 0
-	self.AutoReset = true
+	self.AutoReset = AutoReset or true
 
 	self.OnReady = self._Trove:Construct(Signal)
 	self.OnSuccess = self._Trove:Construct(Signal)
@@ -185,11 +242,11 @@ end
 	If AutoReset is true, it will call :Reset() after a successful run.
 
 	@yields
-	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
+	@param Callback () -> nil -- The function that will be called on a successful run. Will yield.
 	@return boolean -- Returns a boolean indicating if the run was successful or not.
 	@error "No Callback" -- Happens when no callback is provided.
 ]=]
-function Cooldown.Run(self: Cooldown, Callback: () -> ()): boolean
+function Cooldown.Run(self: Cooldown, Callback: () -> nil): boolean
 	assert(type(Callback) == "function", "Callback needs to be a function.")
 
 	if self:IsReady() then
@@ -232,10 +289,10 @@ end
 
 	@yields
 	@param Predicate boolean | () -> boolean -- The boolean or function that returns a boolean indicating if :Run() will be called.
-	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
+	@param Callback () -> nil -- The function that will be called on a successful run. Will yield.
 	@return boolean -- Returns a boolean indicating if the run was successful or not.
 ]=]
-function Cooldown.RunIf(self: Cooldown, Predicate: boolean | () -> boolean, Callback: () -> ()): boolean
+function Cooldown.RunIf(self: Cooldown, Predicate: boolean | () -> boolean, Callback: () -> nil): boolean
 	local PredicateType = type(Predicate)
 	assert(
 		PredicateType == "boolean" or PredicateType == "function",
@@ -279,10 +336,10 @@ end
 	```
 
 	@yields
-	@param Callback () -> () -- The function that will be called on a successful run. Will yield.
-	@param Callback2 () -> () -- The function that will be called on a unsuccessful run. Will yield.
+	@param Callback () -> nil -- The function that will be called on a successful run. Will yield.
+	@param Callback2 () -> nil -- The function that will be called on a unsuccessful run. Will yield.
 ]=]
-function Cooldown.RunOrElse(self: Cooldown, Callback: () -> (), Callback2: () -> ())
+function Cooldown.RunOrElse(self: Cooldown, Callback: () -> nil, Callback2: () -> nil)
 	assert(type(Callback2) == "function", "Callback2 needs to be a function.")
 
 	if not self:Run(Callback) then
@@ -330,8 +387,8 @@ end
 --[=[
 	Returns a boolean indicating if the given table is a Cooldown.
 ]=]
-function Cooldown.Is(Table: Cooldown?): boolean
-	return getmetatable(Table) == Cooldown
+function Cooldown.Is(Object: any): boolean
+	return getmetatable(Object) == Cooldown
 end
 
 --[=[
@@ -341,6 +398,8 @@ end
 ]=]
 function Cooldown.Destroy(self: Cooldown)
 	self._Trove:Destroy()
+	table.clear(self)
+	self = nil
 end
 
 return Cooldown
