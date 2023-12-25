@@ -1,3 +1,5 @@
+# THIS MODULE HAS BEEN MOVED [HERE](https://github.com/denispionicul/Stardust)
+
 # Cooldown
 Countdown is a Debounce utility which is meant to make it easier to create Debounce easily, with minimal effort.
 
